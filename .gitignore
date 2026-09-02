@@ -1,0 +1,38 @@
+.env
+.env.local
+*.pem
+*.key
+
+# --- Virtual environment ---
+.venv/
+venv/
+
+# --- Data extracts (customer data stays off git) ---
+data/*.csv
+data/*.parquet
+data/*.pkl
+data/*.xlsx
+data/raw/
+data/interim/
+
+# --- Models ---
+models/
+*.joblib
+*.ubj
+*.model
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+*.ipynb.bak*
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/

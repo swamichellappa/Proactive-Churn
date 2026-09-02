@@ -1,0 +1,34 @@
+# Proactive Churn — pinned environment
+#
+# WHY THE UPPER PINS: BorutaShap 1.0.17 (last released Dec 2023) is unmaintained
+# and breaks against the current stack in three separate places. Verified working
+# combination below — do not bump numpy/xgboost/scipy without re-testing the
+# BorutaSHAP cell end to end.
+#   - numpy >= 2.0  -> BorutaShap uses np.NaN (removed in numpy 2.0)
+#   - scipy >= 1.12 -> BorutaShap imports scipy.stats.binom_test (removed);
+#                      the notebook installs a shim, but scipy is pinned anyway
+#   - xgboost >= 3.0 -> shap's XGBTreeModelLoader can't parse the new
+#                       base_score serialization ("[4.5714286E-1]")
+
+# --- Redshift connection---
+redshift-connector>=2.1.0,<3
+sqlalchemy>=2.0,<3
+python-dotenv>=1.0
+
+# --- Core data ---
+numpy>=1.26,<2
+scipy>=1.11,<1.14
+pandas>=2.2,<3
+pyarrow>=15          # needed for pandas .to_parquet / .read_parquet engine
+
+# --- Notebook ---
+jupyter>=1.1
+ipykernel>=6.29
+matplotlib>=3.8
+seaborn>=0.13
+
+# --- Modeling ---
+scikit-learn>=1.5
+xgboost>=2.1,<3
+shap>=0.46,<0.50
+BorutaShap==1.0.17
