@@ -1,6 +1,6 @@
 # Proactive Churn
 
-Churn-risk model for brightwheel SaaS schools. Owner: Swami Chellappa. Partner: Rachel Gallegos (Post Sales Analytics).
+Churn-risk model for brightwheel SaaS schools.
 
 ## Setup
 
