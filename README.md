@@ -16,7 +16,7 @@ source .venv/bin/activate
 jupyter notebook
 ```
 
-Open `data/00_redshift_connection.ipynb` and select the **Python (Proactive Churn)** kernel.
+Open `data/dataset_creation.ipynb` and select the **Python (Proactive Churn)** kernel.
 
 ## Layout
 
@@ -27,7 +27,7 @@ Open `data/00_redshift_connection.ipynb` and select the **Python (Proactive Chur
 ├── requirements.txt              # pinned; read the comments before bumping
 ├── setup.sh
 └── data/
-    ├── 00_redshift_connection.ipynb
+    ├── dataset_creation.ipynb    # connection + v1 extract (spec-faithful)
     └── raw/                      # extracts — gitignored
 ```
 

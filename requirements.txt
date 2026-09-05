@@ -19,7 +19,15 @@ python-dotenv>=1.0
 numpy>=1.26,<2
 scipy>=1.11,<1.14
 pandas>=2.2,<3
-pyarrow>=15          # needed for pandas .to_parquet / .read_parquet engine
+pyarrow>=15,<19      # needed for pandas .to_parquet / .read_parquet engine.
+                     # UPPER PIN IS LOAD-BEARING: recent pyarrow wheels are built
+                     # against the numpy 2.x C ABI and raise ImportError under the
+                     # numpy<2 pin above. pandas then latches HAS_PYARROW=False /
+                     # pa_version_under14p1=True (see pandas/compat/pyarrow.py) and
+                     # to_parquet dies in patch_pyarrow() with
+                     #   ArrowKeyError: No type extension with name
+                     #   arrow.py_extension_type found
+                     # which looks like a data problem and is not one.
 
 # --- Notebook ---
 jupyter>=1.1
